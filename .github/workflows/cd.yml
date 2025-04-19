@@ -1,0 +1,22 @@
+on:
+    push: 
+        branches: [main]
+
+jobs:
+    deploy:
+        name: Deploy
+        runs-on: ubuntu-22.04
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Go environment
+              uses: actions/setup-go@v5.4.0
+
+            - name: Build the code
+              uses: ./scripts/buildprod.sh 
+
+
+
+    
